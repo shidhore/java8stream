@@ -16,35 +16,35 @@ public class MatchExample {
 		// allMatch ->
 		// https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#allMatch-java.util.function.Predicate-
 		System.out.println("---- allMatch ----");
-		Predicate<Employee> allMatch = emp -> emp.getName().equals("Beth");
+		Predicate<Employee> allMatchCriteria = emp -> emp.getName().equals("Beth");
 		System.out.println("**must print false** - List contains all employees with name Beth = "
-				+ employees.stream().allMatch(allMatch));
+				+ employees.stream().allMatch(allMatchCriteria));
 
 		System.out.println("");
 
 		// anyMatch ->
 		// https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#anyMatch-java.util.function.Predicate-
 		System.out.println("---- anyMatch ----");
-		Predicate<Employee> anyMatch = emp -> emp.getName().equals("Beth");
+		Predicate<Employee> anyMatchCriteria = emp -> emp.getName().equals("Beth");
 		System.out.println("**must print true** - List contains any employee(s) with name Beth = "
-				+ employees.stream().anyMatch(anyMatch));
+				+ employees.stream().anyMatch(anyMatchCriteria));
 
-		anyMatch = emp -> emp.getName().equals("Pete") || emp.getSalary() > 300000;
+		anyMatchCriteria = emp -> emp.getName().equals("Pete") || emp.getSalary() > 300000;
 		System.out.println("**must print false** - List contains any employee(s) with name Pete or salary > 300000 = "
-				+ employees.stream().anyMatch(anyMatch));
-		
+				+ employees.stream().anyMatch(anyMatchCriteria));
+
 		System.out.println("");
 
 		// noneMatch ->
 		// https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#noneMatch-java.util.function.Predicate-
 		System.out.println("---- noneMatch ----");
-		Predicate<Employee> noneMatch = emp -> emp.getName().equals("Beth");
+		Predicate<Employee> noneMatchCriteria = emp -> emp.getName().equals("Beth");
 		System.out.println("**must print false** - List contains no employee(s) with name Beth = "
-				+ employees.stream().noneMatch(noneMatch));
+				+ employees.stream().noneMatch(noneMatchCriteria));
 
-		noneMatch = emp -> emp.getName().equals("Pete") || emp.getSalary() > 300000;
+		noneMatchCriteria = emp -> emp.getName().equals("Pete") || emp.getSalary() > 300000;
 		System.out.println("**must print true** - List contains no employee(s) with name Pete or salary > 300000 = "
-				+ employees.stream().noneMatch(noneMatch));
+				+ employees.stream().noneMatch(noneMatchCriteria));
 	}
 
 }
